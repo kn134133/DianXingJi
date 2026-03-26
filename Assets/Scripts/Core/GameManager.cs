@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DianXingJi.Network;
+using DianXingJi.Puzzle;
 using DianXingJi.Data;
 using DianXingJi.Level;
 using DianXingJi.UI;
