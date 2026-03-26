@@ -1,7 +1,7 @@
-  name: Get Unity License                                                    
-  on:                                                                        
+name: Get Unity License                                                    
+on:                                                                        
     workflow_dispatch:                                                       
-  jobs:                                                                      
+jobs:                                                                      
     activation:                                                              
       name: Request Unity License
       runs-on: ubuntu-latest                                                 
