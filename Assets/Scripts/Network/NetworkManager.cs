@@ -18,8 +18,8 @@ namespace DianXingJi.Network
         public static NetworkManager Instance { get; private set; }
 
         [Header("服务器配置")]
-        [SerializeField] private string baseUrl = "http://139.129.27.169:8080";
-        [SerializeField] private string wsUrl = "ws://139.129.27.169:8080/ws";
+        [SerializeField] private string baseUrl = "http://47.88.90.227:8080";
+        [SerializeField] private string wsUrl = "ws://47.88.90.227:8080/ws";
         [SerializeField] private float requestTimeout = 10f;
 
         private string _authToken = "";
