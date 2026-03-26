@@ -9,11 +9,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: game-ci/unity-builder@v4
         env:
-          UNITY_EMAIL: kn134133@qq.com
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          projectPath: unity-client
+          projectPath: .
           targetPlatform: WebGL
           unityVersion: 2022.3.20f1
       - uses: actions/upload-artifact@v4
