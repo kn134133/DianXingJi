@@ -6,7 +6,7 @@ jobs:
     name: Get ALF File
     runs-on: ubuntu-latest
     container:
-      image: unityci/editor:3-ubuntu-2022.3.20f1-linux-il2cpp
+      image: unityci/editor:ubuntu-2022.3.20f1-linux-il2cpp-3
     steps:
       - uses: actions/checkout@v4
       - name: Generate ALF
@@ -14,8 +14,6 @@ jobs:
           unity-editor -batchmode -createManualActivationFile -logFile /tmp/unity.log || true
           cat /tmp/unity.log 2>/dev/null | tail -20 || true
           find / -name "*.alf" 2>/dev/null | head -10
-          ls -la /root/*.alf 2>/dev/null || true
-          ls -la *.alf 2>/dev/null || true
       - uses: actions/upload-artifact@v4
         with:
           name: activation-file
