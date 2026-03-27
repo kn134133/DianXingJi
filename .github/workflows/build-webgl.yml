@@ -16,7 +16,6 @@ jobs:
           projectPath: .
           targetPlatform: WebGL
           unityVersion: 2022.3.20f1
-          buildMethod: WebGLBuilder.Build
       - uses: actions/upload-artifact@v4
         with:
           name: webgl-build
