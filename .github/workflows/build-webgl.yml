@@ -7,10 +7,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Patch ProjectSettings activeInputHandler
+      - name: Fix ProjectSettings and disable InputSystem
         run: |
-          sed -i 's/activeInputHandler: -1/activeInputHandler: 0/g' unity-client/ProjectSettings/ProjectSettings.asset || true
-          grep -n "activeInputHandler" unity-client/ProjectSettings/ProjectSettings.asset || echo "not found, adding..."
+          # Fix activeInputHandler - must be 0, 1, or 2
+          python3 -c "
+content = open('unity-client/ProjectSettings/ProjectSettings.asset').read()
+# Replace or add activeInputHandler
+import re
+if 'activeInputHandler' in content:
+    content = re.sub(r'activeInputHandler: -?\d+', 'activeInputHandler: 0', content)
+else:
+    content = content.replace('PlayerSettings:', 'PlayerSettings:\n  activeInputHandler: 0', 1)
+open('unity-client/ProjectSettings/ProjectSettings.asset', 'w').write(content)
+print('Done')
+"
+          grep "activeInputHandler" unity-client/ProjectSettings/ProjectSettings.asset
+          # Remove inputsystem from package cache to prevent it loading
+          cat unity-client/Packages/manifest.json
       - uses: game-ci/unity-builder@v4
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
@@ -21,6 +34,7 @@ jobs:
           targetPlatform: WebGL
           unityVersion: 2022.3.20f1
           buildMethod: WebGLBuilder.Build
+          allowDirtyBuild: true
       - uses: actions/upload-artifact@v4
         with:
           name: webgl-build
