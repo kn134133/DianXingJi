@@ -97,7 +97,7 @@ PlayerSettings:
   submitAnalytics: 0
   useAnimatedAutorotation: 1
   keepLoadedShadersAlive: 0
-  stripEngineCode: 1
+  stripEngineCode: 0
   iPhoneScriptCallOptimization: 0
   foceDebugUnityPlayer: 0
   iPhoneIsAppViewControllerInSupportedInterfaceOrientations: 1
@@ -156,7 +156,8 @@ PlayerSettings:
   additionalIl2CppArgs:
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
-  managedStrippingLevel: {}
+  managedStrippingLevel:
+    WebGL: 0
   playerDataPath:
   forceSingleInstance: 0
   useFlipModelSwapchain: 1
@@ -508,7 +509,7 @@ PlayerSettings:
   submitAnalytics: 0
   useAnimatedAutorotation: 1
   keepLoadedShadersAlive: 0
-  stripEngineCode: 1
+  stripEngineCode: 0
   iPhoneScriptCallOptimization: 0
   foceDebugUnityPlayer: 0
   iPhoneIsAppViewControllerInSupportedInterfaceOrientations: 1
