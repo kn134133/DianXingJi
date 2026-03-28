@@ -1,22 +1,22 @@
 using UnityEngine;
 
 /// <summary>
-/// 场景里唯一挂在GameObject上的脚本。
-/// 运行时动态创建NetworkManager和UIManager，
-/// 避免场景文件需要正确的脚本GUID。
+/// 用 RuntimeInitializeOnLoadMethod 在游戏启动时自动执行，
+/// 完全不依赖场景里的GameObject引用或GUID。
 /// </summary>
-public class Bootstrapper : MonoBehaviour
+public static class Bootstrapper
 {
-    void Awake()
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void Init()
     {
         // NetworkManager
         GameObject nmGO = new GameObject("NetworkManager");
-        DontDestroyOnLoad(nmGO);
+        Object.DontDestroyOnLoad(nmGO);
         nmGO.AddComponent<NetworkManager>();
 
         // UIManager
         GameObject uiGO = new GameObject("UIManager");
-        DontDestroyOnLoad(uiGO);
+        Object.DontDestroyOnLoad(uiGO);
         uiGO.AddComponent<UIManager>();
     }
 }
