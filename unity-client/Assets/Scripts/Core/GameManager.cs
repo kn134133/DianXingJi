@@ -17,16 +17,9 @@ namespace DianXingJi.Core
     {
         public static GameManager Instance { get; private set; }
 
-        [Header("游戏状态")]
         public GameState CurrentState { get; private set; } = GameState.MainMenu;
-
-        [Header("当前玩家信息")]
         public PlayerData CurrentPlayer { get; private set; }
-
-        [Header("当前关卡信息")]
         public LevelData CurrentLevel { get; private set; }
-
-        [Header("游戏进度")]
         public GameProgress CurrentProgress { get; private set; }
 
         [Header("配置")]
