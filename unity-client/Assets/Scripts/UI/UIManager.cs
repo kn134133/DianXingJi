@@ -227,7 +227,7 @@ public class UIManager : MonoBehaviour
         rt.sizeDelta = size;
         Text t = go.AddComponent<Text>();
         t.text = content;
-        t.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        t.font = null;
         t.fontSize = fs;
         t.color = color;
         t.alignment = TextAnchor.MiddleCenter;
@@ -255,7 +255,7 @@ public class UIManager : MonoBehaviour
         phRT.offsetMin = new Vector2(8, 2); phRT.offsetMax = new Vector2(-8, -2);
         Text ph = phGO.AddComponent<Text>();
         ph.text = placeholder;
-        ph.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        ph.font = null;
         ph.fontSize = 14; ph.color = new Color(0.45f, 0.45f, 0.45f);
         ph.alignment = TextAnchor.MiddleLeft;
 
@@ -266,7 +266,7 @@ public class UIManager : MonoBehaviour
         tRT.anchorMin = Vector2.zero; tRT.anchorMax = Vector2.one;
         tRT.offsetMin = new Vector2(8, 2); tRT.offsetMax = new Vector2(-8, -2);
         Text txt = tGO.AddComponent<Text>();
-        txt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        txt.font = null;
         txt.fontSize = 14; txt.color = Color.white;
         txt.alignment = TextAnchor.MiddleLeft;
 
